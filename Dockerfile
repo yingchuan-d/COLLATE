@@ -26,7 +26,8 @@ RUN git clone "https://oauth2:github_pat_11AIZLKEQ0nEWXhiOz9bJQ_s525shcsbR7hcrWX
 WORKDIR ${HOME}/COLLATE
 RUN git submodule update --init
 RUN echo "Building SVF ..."
-RUN bash ./svf-build.sh 
+WORKDIR ${HOME}/COLLATE/SVF
+RUN bash ./build.sh
 
 # Export SVF, llvm, z3 paths
 ENV PATH=${HOME}/COLLATE/SVF/Release-build/bin:$PATH
