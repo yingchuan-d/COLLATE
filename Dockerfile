@@ -39,8 +39,8 @@ ENV LLVM_DIR=${HOME}/COLLATE/SVF/llvm-$llvm_version.obj
 ENV Z3_DIR=${HOME}/COLLATE/SVF/z3.obj
 
 # disable cache
-
 ARG CACHEBUST=1
+
 # build COLLATE
 RUN echo "Building COLLATE ..."
 WORKDIR ${HOME}/COLLATE
