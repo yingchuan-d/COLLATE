@@ -29,6 +29,7 @@ SourceZ3="https://github.com/Z3Prover/z3/archive/refs/tags/z3-4.8.8.zip"
 LLVMHome="llvm-13.0.0.obj"
 Z3Home="z3.obj"
 
+cd ./SVF
 
 # Downloads $1 (URL) to $2 (target destination) using wget or curl,
 # depending on OS.
@@ -217,14 +218,14 @@ echo "Z3_DIR=$Z3_DIR"
 ########
 if [[ $1 == 'debug' ]]
 then
-    rm -rf $SVFHOME/Debug-build
-    mkdir -p $SVFHOME/Debug-build
-    cd $SVFHOME/Debug-build
+    rm -rf ./Debug-build
+    mkdir -p ./Debug-build
+    cd ./Debug-build
     cmake -D CMAKE_BUILD_TYPE:STRING=Debug ../
 else
-    rm -rf $SVFHOME/Release-build
-    mkdir -p $SVFHOME/Release-build
-    cd $SVFHOME/Release-build
+    rm -rf ./Release-build
+    mkdir -p ./Release-build
+    cd ./Release-build
     cmake ../
     fi
 make -j ${jobs}
@@ -244,7 +245,7 @@ fi
 # Build COLLATE
 ########
 
-cd $COLLATEHOME
+cd ../
 mkdir -rf build
 mkdir build
 
