@@ -20,21 +20,17 @@ ENV build_deps="wget xz-utils cmake python git gdb tcl"
 RUN apt-get update --fix-missing
 RUN apt-get install -y $build_deps $lib_deps
 
-# Fetch and build COLLATE
-RUN echo "Downloading and building COLLATE to " ${HOME}
+# Fetch and build SVF source.
 WORKDIR ${HOME}
 RUN git clone "https://oauth2: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@github.com/Northlake-Lab/COLLATE.git"
 WORKDIR ${HOME}/COLLATE
-RUN git submodule update --init --recursive --progress
-RUN echo "Building COLLATE ..."
-RUN bash ./build.sh
+RUN git submodule update --init
+RUN echo "Building ..."
+RUN bash ./build.sh 
 
-# Export COLLATE, SVF, llvm, z3 paths
-ENV PATH=${HOME}/COLLATE/build/bin:$PATH
-ENV PATH=${HOME}/COLLATE/SVF/Release-build/bin:$PATH
-ENV PATH=${HOME}/COLLATE/SVF/llvm-$llvm_version.obj/bin:$PATH
-
-ENV COLLATE_DIR=${HOME}/COLLATE/
-ENV SVF_DIR=${HOME}/COLLATE/SVF
-ENV LLVM_DIR=${HOME}/COLLATE/SVF/llvm-$llvm_version.obj
-ENV Z3_DIR=${HOME}/COLLATE/SVF/z3.obj
+# Export SVF, llvm, z3 paths
+ENV PATH=${HOME}/SVF/Release-build/bin:$PATH
+ENV PATH=${HOME}/SVF/llvm-$llvm_version.obj/bin:$PATH
+ENV SVF_DIR=${HOME}/SVF
+ENV LLVM_DIR=${HOME}/SVF/llvm-$llvm_version.obj
+ENV Z3_DIR=${HOME}/SVF/z3.obj
