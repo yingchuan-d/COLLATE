@@ -20,13 +20,13 @@ ENV build_deps="wget xz-utils cmake python git gdb tcl"
 RUN apt-get update --fix-missing
 RUN apt-get install -y $build_deps $lib_deps
 
-# Fetch and build source.
+# Fetch and build SVF source.
 WORKDIR ${HOME}
 RUN git clone "https://oauth2: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@github.com/Northlake-Lab/COLLATE.git"
 WORKDIR ${HOME}/COLLATE
 RUN git submodule update --init
 RUN echo "Building ..."
-RUN bash ./build.sh 
+RUN bash ./svf-build.sh 
 
 # Export SVF, llvm, z3 paths
 ENV PATH=${HOME}/COLLATE/SVF/Release-build/bin:$PATH
