@@ -11,6 +11,7 @@ jobs=4
 #########
 # VARs and Links
 ########
+COLLATEHOME=$(pwd)
 SVFHOME=$(pwd)/SVF
 sysOS=$(uname -s)
 arch=$(uname -m)
@@ -216,17 +217,21 @@ echo "Z3_DIR=$Z3_DIR"
 ########
 if [[ $1 == 'debug' ]]
 then
-    rm -rf ./'Debug-build'
-    mkdir ./'Debug-build'
-    cd ./'Debug-build'
+    rm -rf $SVFHOME/Debug-build
+    mkdir -p $SVFHOME/Debug-build
+    cd $SVFHOME/Debug-build
     cmake -D CMAKE_BUILD_TYPE:STRING=Debug ../
 else
-    rm -rf ./'Release-build'
-    mkdir ./'Release-build'
-    cd ./'Release-build'
+    rm -rf $SVFHOME/Release-build
+    mkdir -p $SVFHOME/Release-build
+    cd $SVFHOME/Release-build
     cmake ../
     fi
 make -j ${jobs}
+
+cd $COLLATEHOME
+mkdir -rf build
+mkdir build
 
 ########
 # Set up environment variables of SVF
