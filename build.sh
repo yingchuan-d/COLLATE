@@ -11,7 +11,7 @@ jobs=4
 #########
 # VARs and Links
 ########
-SVFHOME=$(pwd)
+SVFHOME=$(pwd)/SVF
 sysOS=$(uname -s)
 arch=$(uname -m)
 MacLLVM="https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/clang+llvm-13.0.0-x86_64-apple-darwin.tar.xz"
