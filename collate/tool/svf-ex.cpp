@@ -161,8 +161,8 @@ int main(int argc, char ** argv)
     svfModule->buildSymbolTableInfo();
 
     /// Build Program Assignment Graph (SVFIR)
-    SVFIRBuilder builder(svfModule);
-    SVFIR* pag = builder.build();
+    SVFIRBuilder builder;
+    SVFIR* pag = builder.build(svfModule);
 
     /// Create Andersen's pointer analysis
     Andersen* ander = AndersenWaveDiff::createAndersenWaveDiff(pag);
@@ -204,3 +204,4 @@ int main(int argc, char ** argv)
     llvm::llvm_shutdown();
     return 0;
 }
+
