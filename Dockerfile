@@ -10,7 +10,7 @@ RUN set -e
 ENV llvm_version=13.0.0
 
 # Define home directory
-ENV HOME=/home/COLLATE
+ENV HOME=/app
 
 # Define dependencies.
 ENV lib_deps="make g++-8 gcc-8 git zlib1g-dev libncurses5-dev build-essential libssl-dev libpcre2-dev zip vim"
@@ -28,9 +28,12 @@ WORKDIR ${HOME}/COLLATE
 RUN echo "Building COLLATE ..."
 RUN bash ./build.sh
 
-# Export SVF, llvm, z3 paths
-ENV PATH=${HOME}/SVF/Release-build/bin:$PATH
-ENV PATH=${HOME}/SVF/llvm-$llvm_version.obj/bin:$PATH
-ENV SVF_DIR=${HOME}/SVF
-ENV LLVM_DIR=${HOME}/SVF/llvm-$llvm_version.obj
-ENV Z3_DIR=${HOME}/SVF/z3.obj
+# Export COLLATE, SVF, llvm, z3 paths
+ENV PATH=${HOME}/COLLATE/build/bin:$PATH
+ENV PATH=${HOME}/COLLATE/SVF/Release-build/bin:$PATH
+ENV PATH=${HOME}/COLLATE/SVF/llvm-$llvm_version.obj/bin:$PATH
+
+ENV COLLATE_DIR=${HOME}/COLLATE/
+ENV SVF_DIR=${HOME}/COLLATE/SVF
+ENV LLVM_DIR=${HOME}/COLLATE/SVF/llvm-$llvm_version.obj
+ENV Z3_DIR=${HOME}/COLLATE/SVF/z3.obj
