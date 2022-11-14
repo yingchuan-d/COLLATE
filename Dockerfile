@@ -22,7 +22,11 @@ RUN apt-get install -y $build_deps $lib_deps
 
 # Fetch and build SVF source.
 WORKDIR ${HOME}
+
+# disable cache
+ARG CACHEBUST=1
 RUN git clone "https://oauth2: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@github.com/Northlake-Lab/COLLATE.git"
+
 WORKDIR ${HOME}/COLLATE
 RUN git submodule update --init
 RUN echo "Building SVF ..."
