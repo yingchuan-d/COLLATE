@@ -39,3 +39,7 @@ ENV Z3_DIR=${HOME}/COLLATE/SVF/z3.obj
 # build COLLATE
 WORKDIR ${HOME}
 RUN bash ./build.sh
+
+# Export COLLATE paths
+ENV PATH=${HOME}/COLLATE/build/bin:$PATH
+ENV COLLATE_DIR=${HOME}/COLLATE
