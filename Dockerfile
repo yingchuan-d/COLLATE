@@ -34,3 +34,7 @@ ENV PATH=${HOME}/COLLATE/SVF/llvm-$llvm_version.obj/bin:$PATH
 ENV SVF_DIR=${HOME}/COLLATE/SVF
 ENV LLVM_DIR=${HOME}/COLLATE/SVF/llvm-$llvm_version.obj
 ENV Z3_DIR=${HOME}/COLLATE/SVF/z3.obj
+
+# build COLLATE
+WORKDIR ${HOME}
+RUN bash ./build.sh
