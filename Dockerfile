@@ -36,7 +36,7 @@ ENV LLVM_DIR=${HOME}/SVF/llvm-$llvm_version.obj
 ENV Z3_DIR=${HOME}/SVF/z3.obj
 
 # Fetch and build COLLATE
-RUN echo "Downloading LLVM and building SVF to " ${HOME}
+RUN echo "Downloading LLVM and building COLLATE to " ${HOME}
 WORKDIR ${HOME}
 RUN git clone "https://github.com/Northlake-Lab/COLLATE.git"
 WORKDIR ${HOME}/COLLATE
