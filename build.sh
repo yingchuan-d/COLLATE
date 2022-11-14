@@ -229,10 +229,6 @@ else
     fi
 make -j ${jobs}
 
-cd $COLLATEHOME
-mkdir -rf build
-mkdir build
-
 ########
 # Set up environment variables of SVF
 ########
@@ -243,6 +239,14 @@ then
 else
   . ./setup.sh
 fi
+
+########
+# Build COLLATE
+########
+
+cd $COLLATEHOME
+mkdir -rf build
+mkdir build
 
 #########
 # Optionally, you can also specify a CXX_COMPILER and your $LLVM_HOME for your build
