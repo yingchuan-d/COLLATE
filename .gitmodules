@@ -1,0 +1,4 @@
+[submodule "SVF"]
+	path = SVF
+	branch = SVF-2.5
+	url = https://github.com/SVF-tools/SVF.git
