@@ -49,4 +49,5 @@ RUN bash ./build.sh
 
 # Export COLLATE paths
 ENV PATH=${HOME}/COLLATE/build/bin:$PATH
+ENV PATH=${HOME}/COLLATE/SVF/llvm-$llvm_version.obj/bin:$PATH
 ENV COLLATE_DIR=${HOME}/COLLATE
